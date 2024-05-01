@@ -33,7 +33,7 @@ const addOrUpdateTask = () => {
 const updateTaskContainer = () => {
   tasksContainer.innerHTML = "";
 
- taskData.forEach(
+  taskData.forEach(
     ({ id, title, date, description }) => {
         (tasksContainer.innerHTML += `
         <div class="task" id="${id}">
@@ -41,7 +41,7 @@ const updateTaskContainer = () => {
           <p><strong>Date:</strong> ${date}</p>
           <p><strong>Description:</strong> ${description}</p>
           <button onclick="editTask(this)" type="button" class="btn">Edit</button>
-          <button onclick="deleteTask(this)" type="button" class="btn">Delete</button>
+          <button onclick="deleteTask(this)" type="button" class="btn">Delete</button> 
         </div>
       `)
     }
@@ -49,7 +49,10 @@ const updateTaskContainer = () => {
 };
 
 const deleteTask = (buttonEl) => {
-
+  const dataArrIndex = taskData.findIndex(
+    (item) => item.id === buttonEl.parentElement.id
+  );
+  
 }
 
 const reset = () => {
