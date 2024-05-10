@@ -14,7 +14,6 @@ const taskData = JSON.parse(localStorage.getItem("data")) || [];
 let currentTask = {};
 
 const addOrUpdateTask = () => {
-  addOrUpdateTaskBtn.innerText = "Add Task";
   const dataArrIndex = taskData.findIndex((item) => item.id === currentTask.id);
   const taskObj = {
     id: `${titleInput.value.toLowerCase().split(" ").join("-")}-${Date.now()}`,
@@ -80,6 +79,7 @@ const editTask = (buttonEl) => {
 }
 
 const reset = () => {
+reset.addOrUpdateTaskBtn.innerText="Add Task";
   titleInput.value = "";
   dateInput.value = "";
   descriptionInput.value = "";
@@ -87,7 +87,7 @@ const reset = () => {
   currentTask = {};
 }
 
-if(taskData.length){
+if (taskData.length) {
   updateTaskContainer();
 }
 
